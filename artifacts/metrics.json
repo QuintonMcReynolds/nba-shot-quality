@@ -1,0 +1,198 @@
+{
+  "data": {
+    "2022-23": {
+      "fga": 217218,
+      "games": 1230,
+      "fg_pct": 0.4754,
+      "three_rate": 0.3875
+    },
+    "2023-24": {
+      "fga": 218701,
+      "games": 1230,
+      "fg_pct": 0.4743,
+      "three_rate": 0.3949
+    },
+    "2024-25": {
+      "fga": 219527,
+      "games": 1230,
+      "fg_pct": 0.4672,
+      "three_rate": 0.4212
+    },
+    "2025-26": {
+      "fga": 219160,
+      "games": 1230,
+      "fg_pct": 0.471,
+      "three_rate": 0.4151
+    }
+  },
+  "holdout_model_comparison": {
+    "League average": {
+      "log_loss": 0.6915,
+      "brier": 0.2492,
+      "auc": 0.5,
+      "mean_pred": 0.4723,
+      "mean_actual": 0.471
+    },
+    "Zone average (NBA shot-chart zones)": {
+      "log_loss": 0.657,
+      "brier": 0.2321,
+      "auc": 0.6374,
+      "mean_pred": 0.4707,
+      "mean_actual": 0.471
+    },
+    "GBM: location": {
+      "log_loss": 0.649,
+      "brier": 0.2288,
+      "auc": 0.6496,
+      "mean_pred": 0.4707,
+      "mean_actual": 0.471
+    },
+    "GBM: location+context": {
+      "log_loss": 0.6401,
+      "brier": 0.2253,
+      "auc": 0.6587,
+      "mean_pred": 0.4715,
+      "mean_actual": 0.471
+    }
+  },
+  "shrinkage": {
+    "prior_mean_pts_per_shot": 0.0024,
+    "prior_sd_pts_per_shot": 0.0709,
+    "stabilization_fga": 272,
+    "implied_reliability_at_median": 0.688,
+    "split_half": {
+      "groups": 1092,
+      "median_fga": 599.5,
+      "split_half_r": 0.508,
+      "full_sample_reliability": 0.674
+    },
+    "by_shot_type": {
+      "twos": {
+        "tau_pts_per_shot": 0.08,
+        "stabilization_fga": 139
+      },
+      "threes": {
+        "tau_pts_per_shot": 0.0792,
+        "stabilization_fga": 330
+      }
+    }
+  },
+  "backtest": [
+    {
+      "min_fga": 50,
+      "estimator": "League average",
+      "n_pairs": 1030,
+      "wrmse": 0.0839,
+      "corr": NaN
+    },
+    {
+      "min_fga": 50,
+      "estimator": "Raw",
+      "n_pairs": 1030,
+      "wrmse": 0.0785,
+      "corr": 0.5049
+    },
+    {
+      "min_fga": 50,
+      "estimator": "Shrunk (EB)",
+      "n_pairs": 1030,
+      "wrmse": 0.0668,
+      "corr": 0.5284
+    },
+    {
+      "min_fga": 100,
+      "estimator": "League average",
+      "n_pairs": 981,
+      "wrmse": 0.0834,
+      "corr": NaN
+    },
+    {
+      "min_fga": 100,
+      "estimator": "Raw",
+      "n_pairs": 981,
+      "wrmse": 0.076,
+      "corr": 0.5346
+    },
+    {
+      "min_fga": 100,
+      "estimator": "Shrunk (EB)",
+      "n_pairs": 981,
+      "wrmse": 0.0658,
+      "corr": 0.5424
+    },
+    {
+      "min_fga": 250,
+      "estimator": "League average",
+      "n_pairs": 794,
+      "wrmse": 0.0807,
+      "corr": NaN
+    },
+    {
+      "min_fga": 250,
+      "estimator": "Raw",
+      "n_pairs": 794,
+      "wrmse": 0.0698,
+      "corr": 0.5659
+    },
+    {
+      "min_fga": 250,
+      "estimator": "Shrunk (EB)",
+      "n_pairs": 794,
+      "wrmse": 0.0619,
+      "corr": 0.573
+    }
+  ],
+  "half_season_stability": {
+    "offense": {
+      "pps": 0.6604606851451804,
+      "xpps": 0.7555214909630625,
+      "raw": 0.6839833686363039
+    },
+    "defense": {
+      "pps": 0.44318898221594644,
+      "xpps": 0.7543194573051094,
+      "raw": 0.47513535191107836
+    }
+  },
+  "case_study": {
+    "team": "PHX",
+    "off_pps": 1.0738,
+    "off_xpps": 1.0817,
+    "off_making": -0.0079,
+    "def_pps": 1.0826,
+    "def_xpps": 1.0994,
+    "def_making": -0.0168,
+    "off_xpps_rank": 20.0,
+    "off_making_rank": 17.0,
+    "def_xpps_rank": 17.0,
+    "def_making_rank": 12.0,
+    "rim_share_by_season": {
+      "2022-23": {
+        "rim_share": 0.2313,
+        "rank_of_30": 30,
+        "league_median": 0.3047
+      },
+      "2023-24": {
+        "rim_share": 0.2679,
+        "rank_of_30": 25,
+        "league_median": 0.3016
+      },
+      "2024-25": {
+        "rim_share": 0.187,
+        "rank_of_30": 30,
+        "league_median": 0.2772
+      },
+      "2025-26": {
+        "rim_share": 0.2337,
+        "rank_of_30": 28,
+        "league_median": 0.2807
+      }
+    },
+    "reallocation_5pct_to_rim": {
+      "xpps_before": 1.0816779464636883,
+      "xpps_after": 1.1067690707874327,
+      "delta_per_100": 2.5091124323744385
+    },
+    "fga_per_game": 90.1
+  }
+}
